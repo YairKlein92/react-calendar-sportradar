@@ -6,10 +6,9 @@ import sportData from '../sportData.json';
 const data = sportData.data;
 
 const CalendarView = () => {
-  // Get the number of days in this month (November)
   const daysInThisMonth = eachDayOfInterval({
-    start: startOfMonth(new Date(2024, 10, 3)), // Start of November 2024
-    end: endOfMonth(new Date(2024, 10, 29)), // End of November 2024
+    start: startOfMonth(new Date(2024, 10, 3)),
+    end: endOfMonth(new Date(2024, 10, 29)),
   });
 
   return (
@@ -19,7 +18,7 @@ const CalendarView = () => {
         {daysInThisMonth.map((day) => {
           // Find the event corresponding to the current day
           const event = data.find(
-            (e) => new Date(e.dateVenue).getDate() === getDate(day),
+            (event) => new Date(event.dateVenue).getDate() === getDate(day),
           );
 
           return (
@@ -38,7 +37,7 @@ const CalendarView = () => {
                     {getDate(day)}
                   </Link>
                 ) : (
-                  getDate(day) // Just show the day number if no event
+                  ''
                 )}
               </div>
             </div>
