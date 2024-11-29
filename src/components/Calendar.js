@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './Navbar';
 import AddEventPage from './pages/AddEventPage';
 import CalendarView from './pages/CalendarView';
-import EventDetailPage from './pages/EventDetailPage';
+import EventDetailsPage from './pages/EventDetailsPage';
 
 function App() {
   return (
@@ -10,8 +10,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<CalendarView />} />
-        <Route path="/event/:id" element={<EventDetailPage />} />
         <Route path="/add-event" element={<AddEventPage />} />
+        <Route path="/event-details" element={<EventDetailsPage />} />
       </Routes>
     </Router>
   );
