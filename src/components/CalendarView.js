@@ -31,13 +31,13 @@ const CalendarView = () => {
                 {/* If there's an event on this day, make it a Link */}
                 {event ? (
                   <Link
-                    to={`/event/${event.awayTeam?.slug}`}
+                    to={`/event/${event.dateVenue}-${event.awayTeam?.slug}`}
                     className="text-white text-decoration-none"
                   >
                     {getDate(day)}
                   </Link>
                 ) : (
-                  ''
+                  getDate(day) // Just show the day number if no event
                 )}
               </div>
             </div>

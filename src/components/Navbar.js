@@ -21,7 +21,7 @@ function Navbar() {
             Add Event
           </Link>
           <Link
-            to="/event-details"
+            to="/events-details"
             className="hover:bg-blue-500 px-3 py-2 rounded-md text-sm font-medium"
           >
             Event Details

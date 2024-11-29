@@ -5,7 +5,7 @@ import sportData from '../sportData.json';
 
 const data = sportData.data;
 
-const EventDetailsPage = () => {
+const EventsDetailsPage = () => {
   const daysOfTheWeek = [
     'Sun.',
     'Mon.',
@@ -50,7 +50,7 @@ const EventDetailsPage = () => {
                   </td>
                   <td>
                     <Link
-                      to={`/event/${event.awayTeam?.slug}`}
+                      to={`/event/${event.dateVenue}-${event.awayTeam?.slug}`}
                       className="btn btn-primary btn-sm"
                     >
                       View Details
@@ -66,4 +66,4 @@ const EventDetailsPage = () => {
   );
 };
 
-export default EventDetailsPage;
+export default EventsDetailsPage;
