@@ -1,3 +1,4 @@
+import './EventDetailsPage.css';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import sportData from '../../sportData.json'; // Correct path
@@ -28,7 +29,7 @@ const EventDetailsPage = () => {
   const formatTime = (time) => time.slice(0, 5);
 
   return (
-    <div className="container mt-4">
+    <div className="container">
       <h1 className="text-center mb-4">Event Details</h1>
       <div className="row">
         <div className="col-12">

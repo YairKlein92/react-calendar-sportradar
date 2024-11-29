@@ -1,0 +1,76 @@
+.container {
+  padding: 15px;
+}
+
+.table {
+  font-size: 1rem;
+}
+
+.thead-dark th {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.table tbody td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.btn {
+  font-size: 0.9rem;
+  padding: 5px 10px;
+}
+
+@media (max-width: 1200px) {
+  .table {
+    font-size: 0.9rem;
+  }
+  .thead-dark th {
+    font-size: 1rem;
+  }
+  .btn {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 992px) {
+  .table {
+    font-size: 0.8rem;
+  }
+  .thead-dark th {
+    font-size: 0.9rem;
+  }
+  .btn {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    font-size: 0.6rem;
+  }
+  /* .table {
+  }
+  .thead-dark th {
+  } */
+  .btn {
+    padding: 2px 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .table {
+    font-size: 0.6rem;
+  }
+  .thead-dark th {
+    font-size: 0.7rem;
+  }
+  .btn {
+    font-size: 0.65rem;
+    padding: 2px 4px;
+  }
+}

@@ -1,4 +1,4 @@
-import { getDate, getDay } from 'date-fns';
+import './EventsDetailsPage.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import sportData from '../sportData.json';
@@ -26,13 +26,13 @@ const EventsDetailsPage = () => {
         <table className="table table-striped table-bordered">
           <thead className="thead-dark">
             <tr>
-              <th scope="col">Date - daydatehour</th>
+              <th scope="col">Date</th>
               <th scope="col">Match</th>
               <th scope="col">Details</th>
             </tr>
           </thead>
           <tbody>
-            {sportData.data.map((event, index) => {
+            {data.map((event, index) => {
               // Convert event.dateVenue to a Date object
               const eventDate = new Date(event.dateVenue);
               const dayOfWeek = eventDate.getDay();
@@ -51,7 +51,7 @@ const EventsDetailsPage = () => {
                   <td>
                     <Link
                       to={`/event/${event.dateVenue}-${event.awayTeam?.slug}`}
-                      className="btn btn-primary btn-sm"
+                      className="btn btn-sm btn-dark"
                     >
                       View Details
                     </Link>

@@ -1,0 +1,105 @@
+/* General container styling */
+.container {
+  margin-top: 7rem;
+  background: #f9f9f9;
+  border-radius: 1rem;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Page heading */
+h1 {
+  font-size: 2rem;
+  color: #053c5e;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Subheadings */
+h3,
+h4,
+h5 {
+  color: #444;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+/* Paragraph styling */
+p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Highlight key details */
+strong {
+  color: #333;
+  font-weight: bold;
+}
+
+/* Responsive text and spacing */
+@media (max-width: 1200px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+  h4 {
+    font-size: 1.1rem;
+  }
+  h5 {
+    font-size: 0.9rem;
+  }
+  p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+  h3 {
+    font-size: 1.3rem;
+  }
+  h4 {
+    font-size: 1rem;
+  }
+  h5 {
+    font-size: 0.85rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+  h3 {
+    font-size: 1.2rem;
+  }
+  h4 {
+    font-size: 0.95rem;
+  }
+  h5 {
+    font-size: 0.8rem;
+  }
+  p {
+    font-size: 0.85rem;
+  }
+}

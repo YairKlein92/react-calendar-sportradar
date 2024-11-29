@@ -2,30 +2,40 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <nav className="bg-blue-600 text-white px-4 py-3">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-lg font-bold">
-          <Link to="/">Homepage</Link>
-        </div>
-        <div className="flex space-x-4">
-          <Link
-            to="/"
-            className="hover:bg-blue-500 px-3 py-2 rounded-md text-sm font-medium"
-          >
-            Calendar
-          </Link>
-          <Link
-            to="/add-event"
-            className="hover:bg-blue-500 px-3 py-2 rounded-md text-sm font-medium"
-          >
-            Add Event
-          </Link>
-          <Link
-            to="/events-details"
-            className="hover:bg-blue-500 px-3 py-2 rounded-md text-sm font-medium"
-          >
-            Event Details
-          </Link>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-custom">
+      <div className="container-fluid">
+        <Link to="/" className="navbar-brand">
+          Homepage
+        </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <Link to="/" className="nav-link active" aria-current="page">
+                Calendar
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/add-event" className="nav-link">
+                Add Event
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/events-details" className="nav-link">
+                Events
+              </Link>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
