@@ -6,7 +6,7 @@ import {
   startOfMonth,
   startOfWeek,
 } from 'date-fns';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import sportData from '../sportData.json';
 
@@ -19,7 +19,7 @@ const CalendarView = () => {
     setEvents((prevEvents) => [...prevEvents, newEvent]);
   };
   // Add Event
-
+  console.log(events, addEvent());
   const startOfMonthDate = startOfMonth(new Date(2024, 10)); // November 2024
   const startDay = startOfWeek(startOfMonthDate, { weekStartsOn: 0 }); // Ensure the calendar starts with Sunday
 
