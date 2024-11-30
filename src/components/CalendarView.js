@@ -13,17 +13,38 @@ import sportData from '../sportData.json';
 const data = sportData.data;
 
 const CalendarView = () => {
-  // Store events in state
   const [events, setEvents] = useState([]);
 
-  // Load initial events from sportData.json into state
   useEffect(() => {
-    setEvents(data); // Set initial events from the imported JSON
+    const storedEvents = JSON.parse(localStorage.getItem('events')) || [];
+    console.log('Fetched events from localStorage:', storedEvents);
+
+    if (storedEvents.length > 0) {
+      const firstEventDate = storedEvents[0].dateVenue;
+      console.log('First event date:', firstEventDate);
+
+      const eventsWithFirstEventDate = data.map((event) => ({
+        ...event,
+        firstEventDate, // Add firstEventDate property to each event
+      }));
+
+      console.log(
+        'Updated events with firstEventDate:',
+        eventsWithFirstEventDate,
+      );
+
+      const updatedEvents = [...eventsWithFirstEventDate, ...storedEvents];
+
+      console.log('Updated events array:', updatedEvents);
+
+      setEvents(updatedEvents);
+    } else {
+      setEvents(data);
+    }
   }, []);
 
-  // Calculate the start of the month (for November 2024) and the grid of days
   const startOfMonthDate = startOfMonth(new Date(2024, 10)); // November 2024
-  const startDay = startOfWeek(startOfMonthDate, { weekStartsOn: 0 }); // Calendar starts on Sunday
+  const startDay = startOfWeek(startOfMonthDate, { weekStartsOn: 0 });
 
   const daysInThisMonth = eachDayOfInterval({
     start: startDay,
@@ -52,7 +73,6 @@ const CalendarView = () => {
       <h1 className="text-center mb-4">November</h1>
 
       <div className="calendar-grid">
-        {/* Weekday labels */}
         <div className="weekday-labels">
           <div>Sun</div>
           <div>Mon</div>
@@ -63,11 +83,9 @@ const CalendarView = () => {
           <div>Sat</div>
         </div>
 
-        {/* Calendar grid */}
         <div className="days-grid">
           {weeks.map((week, weekIndex) =>
             week.map((day, dayIndex) => {
-              // Find events for the current day
               const event = events.find(
                 (event) => new Date(event.dateVenue).getDate() === getDate(day),
               );

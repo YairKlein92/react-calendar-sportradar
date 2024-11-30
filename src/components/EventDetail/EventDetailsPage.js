@@ -1,18 +1,17 @@
 import './EventDetailsPage.css';
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import sportData from '../../sportData.json'; // Correct path
+import sportData from '../../sportData.json';
 
 const EventDetailsPage = () => {
   const { eventDetails } = useParams();
   console.log(eventDetails);
 
-  // Split the eventDetails into parts
-  const parts = eventDetails.split('-'); // have all the elements split with a hyphen in a list []
-  const eventDate = `${parts[0]}-${parts[1]}-${parts[2]}`; // First 3 parts: '2024-11-03'
-  const awayTeamSlug = parts.slice(3).join('-'); // Everything after the 3rd part: 'fc-nasaf-qarshi'
+  const parts = eventDetails.split('-');
+  const eventDate = `${parts[0]}-${parts[1]}-${parts[2]}`;
+  const awayTeamSlug = parts.slice(3).join('-');
 
-  console.log(eventDate, '-', awayTeamSlug); // Logs: '2024-11-03' and 'fc-nasaf-qarshi'
+  console.log(eventDate, '-', awayTeamSlug);
 
   const event = sportData.data.find(
     (event) =>
@@ -25,7 +24,6 @@ const EventDetailsPage = () => {
     return <div>Event not found</div>;
   }
 
-  // Function to format the time (removes seconds)
   const formatTime = (time) => time.slice(0, 5);
 
   return (
