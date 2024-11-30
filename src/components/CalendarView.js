@@ -6,22 +6,24 @@ import {
   startOfMonth,
   startOfWeek,
 } from 'date-fns';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import sportData from '../sportData.json';
 
 const data = sportData.data;
 
 const CalendarView = () => {
-  // Add Event
-  const [events, setEvents] = useState(data);
-  const addEvent = (newEvent) => {
-    setEvents((prevEvents) => [...prevEvents, newEvent]);
-  };
-  // Add Event
-  console.log(events, addEvent());
+  // Store events in state
+  const [events, setEvents] = useState([]);
+
+  // Load initial events from sportData.json into state
+  useEffect(() => {
+    setEvents(data); // Set initial events from the imported JSON
+  }, []);
+
+  // Calculate the start of the month (for November 2024) and the grid of days
   const startOfMonthDate = startOfMonth(new Date(2024, 10)); // November 2024
-  const startDay = startOfWeek(startOfMonthDate, { weekStartsOn: 0 }); // Ensure the calendar starts with Sunday
+  const startDay = startOfWeek(startOfMonthDate, { weekStartsOn: 0 }); // Calendar starts on Sunday
 
   const daysInThisMonth = eachDayOfInterval({
     start: startDay,
@@ -65,10 +67,12 @@ const CalendarView = () => {
         <div className="days-grid">
           {weeks.map((week, weekIndex) =>
             week.map((day, dayIndex) => {
-              const event = data.find(
+              // Find events for the current day
+              const event = events.find(
                 (event) => new Date(event.dateVenue).getDate() === getDate(day),
               );
 
+              // Check if the day is part of the previous month
               const isPrevMonth = getDate(day) > 31;
 
               return (
