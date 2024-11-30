@@ -1,3 +1,4 @@
+/* Weekday labels styling */
 .weekday-labels {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -30,25 +31,36 @@
     font-size: 0.6rem;
   }
 }
+
+/* Calendar grid layout */
 .calendar-grid {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+/* Days grid layout (for the days in the calendar) */
 .days-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
+  grid-template-columns: repeat(7, 1fr); /* 7 columns */
+  gap: 5px; /* Small gap between day boxes */
 }
 
 .day-box {
-  border: 1px solid #ccc;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid #ccc;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
+  background-color: #f8f9fa; /* Default background color */
+  color: black;
+  /* Adjust size of the day boxes to be smaller */
+  width: 100%;
+  height: 80px; /* Set a fixed height */
+  position: relative;
+  font-size: 1.2rem; /* Make sure the text is legible */
+  text-align: center; /* Ensure numbers are centered */
 }
 
 .event-box {
@@ -68,15 +80,21 @@
 .event-link {
   color: white;
   text-decoration: none;
+  position: absolute;
+  font-size: 1rem; /* Adjust font size for links */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the event link */
 }
 
+/* Responsive Styling */
 @media (max-width: 1200px) {
   .days-grid {
     gap: 4px;
   }
 
   .day-box {
-    height: 60px;
+    height: 70px; /* Slightly smaller size for medium-large screens */
   }
 }
 
@@ -86,7 +104,7 @@
   }
 
   .day-box {
-    height: 55px;
+    height: 60px; /* Smaller size for medium screens */
   }
 }
 
@@ -96,7 +114,7 @@
   }
 
   .day-box {
-    height: 60px;
+    height: 55px; /* Smaller size for smaller screens */
   }
 }
 
@@ -106,15 +124,16 @@
   }
 
   .day-box {
-    height: 50px;
+    height: 45px; /* Even smaller size for very small screens */
   }
 }
+
 @media (max-width: 420px) {
   .days-grid {
     gap: 0;
   }
 
   .day-box {
-    height: 35px;
+    height: 35px; /* Extremely small size for mobile screens */
   }
 }
