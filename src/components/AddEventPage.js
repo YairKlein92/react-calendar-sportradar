@@ -5,7 +5,7 @@ const AddEventPage = () => {
   const [awayTeam, setAwayTeam] = useState('');
   const [homeTeam, setHomeTeam] = useState('');
   const [sport, setSport] = useState('');
-  const [time, setTime] = useState('');
+  const [timeVenueUTC, setTimeVenueUTC] = useState('');
   // State to store the submitted event
   const [submittedEvent, setSubmittedEvent] = useState();
 
@@ -15,7 +15,7 @@ const AddEventPage = () => {
     const newEvent = {
       dateVenue,
       sport,
-      time,
+      timeVenueUTC,
       awayTeam: {
         name: awayTeam,
         slug: awayTeam.toLowerCase().replace(' ', '-'),
@@ -54,17 +54,18 @@ const AddEventPage = () => {
             required
           />
         </div>
-
         <div className="mb-3">
           <label htmlFor="time" className="form-label">
-            Time
+            Time (HH:MM:SS)
           </label>
           <input
-            type="time"
+            type="text"
             id="time"
             className="form-control"
-            value={time}
-            onChange={(event) => setTime(event.target.value)}
+            value={timeVenueUTC}
+            onChange={(event) => setTimeVenueUTC(event.target.value)}
+            pattern="^([0-1][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$"
+            title="Time must be in HH:MM:SS format"
             required
           />
         </div>
@@ -120,10 +121,10 @@ const AddEventPage = () => {
         <div className="mt-4">
           <h3>Event Details</h3>
           <p>
-            <strong>Date:</strong> {submittedEvent.date}
+            <strong>Date:</strong> {submittedEvent.dateVenue}
           </p>
           <p>
-            <strong>Time:</strong> {submittedEvent.time}
+            <strong>Time:</strong> {submittedEvent.timeVenueUTC}
           </p>
           <p>
             <strong>Sport:</strong> {submittedEvent.sport}

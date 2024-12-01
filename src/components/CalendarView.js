@@ -20,20 +20,7 @@ const CalendarView = () => {
     console.log('Fetched events from localStorage:', storedEvents);
 
     if (storedEvents.length > 0) {
-      const firstEventDate = storedEvents[0].dateVenue;
-      console.log('First event date:', firstEventDate);
-
-      const eventsWithFirstEventDate = data.map((event) => ({
-        ...event,
-        firstEventDate, // Add firstEventDate property to each event
-      }));
-
-      console.log(
-        'Updated events with firstEventDate:',
-        eventsWithFirstEventDate,
-      );
-
-      const updatedEvents = [...eventsWithFirstEventDate, ...storedEvents];
+      const updatedEvents = [...data, ...storedEvents];
 
       console.log('Updated events array:', updatedEvents);
 

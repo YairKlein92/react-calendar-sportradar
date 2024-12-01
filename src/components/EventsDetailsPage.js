@@ -1,5 +1,5 @@
 import './EventsDetailsPage.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import sportData from '../sportData.json';
 
@@ -16,9 +16,21 @@ const EventsDetailsPage = () => {
     'Sat.',
   ];
   // function to cut the seconds off of dateVenue
-  const formatTime = (time) => {
-    return time.slice(0, 5); // Remove the seconds part
-  };
+  // const formatTime = (time) => {
+  //   return time.slice(0, 5); // Remove the seconds part
+  // };
+  const [events, setEvents] = useState(data);
+
+  useEffect(() => {
+    const localStorageEvents = JSON.parse(localStorage.getItem('events')) || [];
+    console.log('Fetched events from localStorage:', localStorageEvents);
+
+    if (localStorageEvents.length > 0) {
+      const updatedEvents = [...data, ...localStorageEvents];
+      console.log('Updated events array:', updatedEvents);
+      setEvents(updatedEvents);
+    }
+  }, []);
   return (
     <div className="container mt-4">
       <h1 className="text-center mb-4">Events in November</h1>
@@ -32,7 +44,7 @@ const EventsDetailsPage = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((event, index) => {
+            {events.map((event, index) => {
               // Convert event.dateVenue to a Date object
               const eventDate = new Date(event.dateVenue);
               const dayOfWeek = eventDate.getDay();
@@ -41,8 +53,7 @@ const EventsDetailsPage = () => {
               return (
                 <tr key={index}>
                   <td>
-                    {dayName}, {event.dateVenue} -{' '}
-                    {formatTime(event.timeVenueUTC)}
+                    {dayName}, {event.dateVenue} - {event.timeVenueUTC}
                   </td>
                   <td>
                     {event.homeTeam?.name || 'TBD'} vs{' '}
