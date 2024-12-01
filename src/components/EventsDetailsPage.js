@@ -16,9 +16,9 @@ const EventsDetailsPage = () => {
     'Sat.',
   ];
   // function to cut the seconds off of dateVenue
-  // const formatTime = (time) => {
-  //   return time.slice(0, 5); // Remove the seconds part
-  // };
+  const formatTime = (time) => {
+    return time.slice(0, 5); // Remove the seconds part
+  };
   const [events, setEvents] = useState(data);
 
   useEffect(() => {
@@ -37,8 +37,8 @@ const EventsDetailsPage = () => {
       <div className="table-responsive">
         <table className="table table-striped table-bordered">
           <thead className="thead-dark">
-            <tr>
-              <th scope="col">Date</th>
+            <tr className="">
+              <th scope="col ">Date</th>
               <th scope="col">Match</th>
               <th scope="col">Details</th>
             </tr>
@@ -53,7 +53,8 @@ const EventsDetailsPage = () => {
               return (
                 <tr key={index}>
                   <td>
-                    {dayName}, {event.dateVenue} - {event.timeVenueUTC}
+                    {dayName}, {event.dateVenue} -{' '}
+                    {formatTime(event.timeVenueUTC)}
                   </td>
                   <td>
                     {event.homeTeam?.name || 'TBD'} vs{' '}

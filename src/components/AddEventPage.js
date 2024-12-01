@@ -18,10 +18,12 @@ const AddEventPage = () => {
       timeVenueUTC,
       awayTeam: {
         name: awayTeam,
+        officialName: awayTeam,
         slug: awayTeam.toLowerCase().replace(' ', '-'),
       },
       homeTeam: {
         name: homeTeam,
+        officialName: homeTeam,
         slug: homeTeam.toLowerCase().replace(' ', '-'),
       },
     };
