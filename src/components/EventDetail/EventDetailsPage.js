@@ -23,6 +23,7 @@ const EventDetailsPage = () => {
       console.log('merged events', updatedEvents);
     } else {
       console.log('No events in localStorage');
+      setEvents(data);
     }
   }, []);
 

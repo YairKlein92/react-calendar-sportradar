@@ -26,6 +26,7 @@ const CalendarView = () => {
 
       setEvents(updatedEvents);
     } else {
+      console.log('No events in localStorage');
       setEvents(data);
     }
   }, []);
