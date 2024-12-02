@@ -1,0 +1,104 @@
+# React Calendar Sportradar
+
+## Overview
+
+The **React Calendar Sportradar** is a dynamic web application that allows users to explore sports events, view detailed information about individual events, and add new events during runtime. Designed with responsiveness in mind, it adapts seamlessly to desktops, tablets, and mobile phones, ensuring an intuitive user experience.
+
+This project demonstrates proficiency in frontend programming concepts, including building interactive user interfaces, handling user interactions, and implementing responsive design.
+
+The application has been deployed to Netlify for easy access.
+
+### [Live Demo on Netlify](https://csjk-react-calendar.netlify.app/)
+
+---
+
+## Features
+
+### Calendar View
+
+- Presents the current month in a clean and intuitive grid layout.
+- Days with scheduled sports events are visually distinguished using a unique background color, making them easily identifiable. The numbers also function as interactive links.
+- Clicking a highlighted day opens a page showing all events scheduled for that day (the details of all the events respectively are available from this page as well)
+
+### Event Detail Page and Events Detail Page
+
+- Users can click on a 'View Details' marker to access comprehensive event information. This functionality is available from both the general events page and the specific date events page.
+- The details page provides:
+  - Scheduled date and time
+  - Type of sport
+  - Competing teams
+  - Location
+  - Additional information
+- The general events page includes filtering options, allowing users to refine their search by:
+  - Sport type
+  - Home team
+  - Away team
+
+### Add Event Functionality
+
+- Includes a user-friendly form for adding new events with fields for:
+  - Date and time
+  - Sport type
+  - Home and Opponent teams' names
+- Newly added events are dynamically displayed on the calendar (and until refresh on the same page as well)
+
+### Responsiveness
+
+- Fully responsive design by Bootstrap ensures usability across:
+  - Desktop devices
+  - Tablets
+  - Mobile phones
+- The layout and styles adjust dynamically for different screen sizes.
+
+### Navigation
+
+- A simple navigation bar, available on every page, allows users to:
+  - Switch between the calendar view and the "Add Event" page and "Events Page".
+  - Access the home page from any view by clicking on Homepage or Calendar (this version is found in a dropdown menu in case of smaller screens)
+
+---
+
+## Additional Features
+
+- **Persistent Storage**: Events are temporarily saved in local storage, allowing users to see added events without refreshing the page during the session.
+- **Styling**: Clean and visually appealing design focused on simplicity, responsiveness and usability.
+- **Deployment**: The application is hosted on Netlify for convenient access.
+
+---
+
+## Technologies Used
+
+- **Frontend Framework**: React.js
+- **Styling**: CSS/Bootstrap
+- **Storage**: LocalStorage for runtime persistence
+- **Deployment**: Netlify
+- **Version Control**: GitHub
+
+---
+
+## Running Locally
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/YairKlein92/react-calendar-sportradar
+   cd sports-event-calendar
+   ```
+2. Install Dependencies:
+   ```bash
+   npm install
+   yarn install
+   ```
+3. Start the app:
+   ```bash
+   npm install
+   yarn start
+   ```
+4. Open in your browser:
+   Once the server is running, open the app in your browser at:
+   http://localhost:3000
+
+### Future Improvements
+
+- **Unit Testing**: Implement unit tests using Jest and React Testing Library.
+- **Persistent Storage**: Integrate a database or API to save events permanently.
+- **Enhanced Styling**: Add animations and more modern styling techniques for a more dynamic user experience.

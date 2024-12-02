@@ -99,7 +99,7 @@ const CalendarView = () => {
                 >
                   {isCurrentMonth && event ? (
                     <Link
-                      to={`/event/${event.dateVenue}-${event.awayTeam?.slug}`}
+                      to={`/events/${event.dateVenue}`}
                       className="event-link"
                     >
                       {getDate(day)}

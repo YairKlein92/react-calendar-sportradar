@@ -51,7 +51,7 @@ table .thead-dark th {
 
 @media (max-width: 768px) {
   .container {
-    font-size: 0.6rem;
+    font-size: 0.9rem;
   }
   .btn {
     padding: 2px 5px;
@@ -60,10 +60,10 @@ table .thead-dark th {
 
 @media (max-width: 576px) {
   .table {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
   }
   .thead-dark th {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
   .btn {
     font-size: 0.65rem;
