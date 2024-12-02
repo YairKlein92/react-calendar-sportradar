@@ -7,8 +7,6 @@ const data = sportData.data;
 
 const DateEventsPage = () => {
   const { eventsDetails } = useParams();
-  console.log('eventsDetails: ', eventsDetails);
-
   const [events, setEvents] = useState(data);
   const eventDate = eventsDetails;
 
@@ -40,8 +38,6 @@ const DateEventsPage = () => {
       <h1 className="text-center mb-4">
         Events on {new Date(eventDate).toLocaleDateString()}
       </h1>
-
-      {/* Event Cards */}
       <div className="table-responsive">
         <table className="table table-striped table-bordered">
           <thead className="thead-dark">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const AddEventPage = () => {
   const [dateVenue, setDateVenue] = useState('');
@@ -6,7 +6,6 @@ const AddEventPage = () => {
   const [homeTeam, setHomeTeam] = useState('');
   const [sport, setSport] = useState('');
   const [timeVenueUTC, setTimeVenueUTC] = useState('');
-  // State to store the submitted event
   const [submittedEvent, setSubmittedEvent] = useState();
 
   const handleSubmit = (event) => {
@@ -32,10 +31,6 @@ const AddEventPage = () => {
     localStorage.setItem('events', JSON.stringify(storedEvents));
     setSubmittedEvent(newEvent);
   };
-
-  useEffect(() => {
-    console.log('Stored Events:', JSON.parse(localStorage.getItem('events')));
-  }, []);
 
   return (
     <div className="container mt-4">

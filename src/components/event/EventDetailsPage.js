@@ -7,27 +7,20 @@ const data = sportData.data;
 
 const EventDetailsPage = () => {
   const { eventDetails } = useParams();
-  console.log('eventDetails: ', eventDetails);
   const [events, setEvents] = useState(data);
   const parts = eventDetails.split('-');
   const eventDate = `${parts[0]}-${parts[1]}-${parts[2]}`;
   const awayTeamSlug = parts.slice(3).join('-');
-  console.log('awayTeamSlug: ', awayTeamSlug);
-  console.log('eventDate: ', eventDate);
 
   useEffect(() => {
     const localStorageEvents = JSON.parse(localStorage.getItem('events')) || [];
     if (localStorageEvents.length > 0) {
       const updatedEvents = [...data, ...localStorageEvents];
       setEvents(updatedEvents);
-      console.log('merged events', updatedEvents);
     } else {
-      console.log('No events in localStorage');
       setEvents(data);
     }
   }, []);
-
-  console.log(eventDate, '-', awayTeamSlug);
 
   const event = events.find(
     (event) =>
@@ -37,7 +30,7 @@ const EventDetailsPage = () => {
   );
 
   if (!event) {
-    return <div>Event not found</div>;
+    return <div>No event found.</div>;
   }
 
   const formatTime = (time) => time.slice(0, 5);

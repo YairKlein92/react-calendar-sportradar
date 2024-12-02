@@ -18,14 +18,11 @@ const CalendarView = () => {
 
   useEffect(() => {
     const storedEvents = JSON.parse(localStorage.getItem('events')) || [];
-    console.log('Fetched events from localStorage:', storedEvents);
 
     if (storedEvents.length > 0) {
       const updatedEvents = [...data, ...storedEvents];
-      console.log('Updated events array:', updatedEvents);
       setEvents(updatedEvents);
     } else {
-      console.log('No events in localStorage');
       setEvents(data);
     }
   }, []);
