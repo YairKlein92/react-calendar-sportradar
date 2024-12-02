@@ -3,6 +3,7 @@ import {
   eachDayOfInterval,
   endOfMonth,
   getDate,
+  getYear,
   startOfMonth,
   startOfWeek,
 } from 'date-fns';
@@ -21,9 +22,7 @@ const CalendarView = () => {
 
     if (storedEvents.length > 0) {
       const updatedEvents = [...data, ...storedEvents];
-
       console.log('Updated events array:', updatedEvents);
-
       setEvents(updatedEvents);
     } else {
       console.log('No events in localStorage');
@@ -74,21 +73,31 @@ const CalendarView = () => {
         <div className="days-grid">
           {weeks.map((week, weekIndex) =>
             week.map((day, dayIndex) => {
-              const event = events.find(
-                (event) => new Date(event.dateVenue).getDate() === getDate(day),
-              );
-
-              // Check if the day is part of the previous month
-              const isPrevMonth = getDate(day) > 31;
+              const isCurrentMonth =
+                day.getMonth() === 10 && getYear(day) === 2024;
+              const event =
+                // Ignore October and 2025
+                isCurrentMonth &&
+                events.find(
+                  (event) =>
+                    new Date(event.dateVenue).getDate() === getDate(day) &&
+                    new Date(event.dateVenue).getMonth() === 10 &&
+                    // getYear is not working here
+                    // other option would be:
+                    // getDate(new Date(event.dateVenue)) === getDate(day) &&
+                    // getMonth(new Date(event.dateVenue)) === 10 &&
+                    // getYear(new Date(event.dateVenue)) === 2024,
+                    new Date(event.dateVenue).getFullYear() === 2024,
+                );
 
               return (
                 <div
                   key={`${weekIndex}-${dayIndex}`}
-                  className={`day-box ${event ? 'event-box' : 'no-event-box'} ${
-                    isPrevMonth ? 'prev-month' : ''
+                  className={`day-box ${isCurrentMonth ? '' : 'prev-month'} ${
+                    event ? 'event-box' : 'no-event-box'
                   }`}
                 >
-                  {event ? (
+                  {isCurrentMonth && event ? (
                     <Link
                       to={`/event/${event.dateVenue}-${event.awayTeam?.slug}`}
                       className="event-link"
